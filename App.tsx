@@ -16,7 +16,7 @@ const {height, width} = Dimensions.get('screen');
 
 const OFFSET = 80;
 const RADIUS = 80;
-const BACKGROUND_COLOR = '#90D5E0';
+const RING_COLOR = '#90D5E0';
 
 export default function App() {
   const skValue = useValue(0);
@@ -56,7 +56,7 @@ export default function App() {
           cx={width / 2 + OFFSET}
           cy={height / 2}
           r={RADIUS}
-          color={BACKGROUND_COLOR}
+          color={RING_COLOR}
         />
       </Group>
     );
