@@ -1,5 +1,5 @@
 import React from 'react';
-import Glassmorphism from './src/Screens/Glassmorphism/Glassmorphism';
+import Glassmorphism from './src/Screens/ReactLogo/ReactLogo';
 
 export default function App() {
   return <Glassmorphism />;
