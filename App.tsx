@@ -1,5 +1,5 @@
 import React from 'react';
-import Glassmorphism from './src/Screens/ImageFilter/ImageFilter';
+import Glassmorphism from './src/Screens/PhoneRing/PhoneRing';
 
 export default function App() {
   return <Glassmorphism />;
