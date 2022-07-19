@@ -1,10 +1,12 @@
+/* eslint-disable react-native/no-inline-styles */
 import {Dimensions, StatusBar, StyleSheet} from 'react-native';
-import React, {Fragment} from 'react';
+import React from 'react';
 import Item from './Components/Item';
 import Animated, {
   useAnimatedScrollHandler,
   useSharedValue,
 } from 'react-native-reanimated';
+import {GestureHandlerRootView, ScrollView} from 'react-native-gesture-handler';
 
 const {height} = Dimensions.get('window');
 
@@ -15,11 +17,13 @@ const styles = StyleSheet.create({
   },
 });
 
+const AnimatedScrollView = Animated.createAnimatedComponent(ScrollView);
+
 const data = [
   {
     id: 0,
     image:
-      'https://images.pexels.com/photos/1468379/pexels-photo-1468379.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/1525423/pexels-photo-1525423.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
   {
     id: 1,
@@ -34,12 +38,12 @@ const data = [
   {
     id: 3,
     image:
-      'https://images.pexels.com/photos/1468379/pexels-photo-1468379.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/157675/fashion-men-s-individuality-black-and-white-157675.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
   {
     id: 4,
     image:
-      'https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/1462637/pexels-photo-1462637.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
   {
     id: 5,
@@ -49,20 +53,19 @@ const data = [
   {
     id: 6,
     image:
-      'https://images.pexels.com/photos/1468379/pexels-photo-1468379.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/532220/pexels-photo-532220.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
 ];
 
 const ChanelScroll = () => {
   const y = useSharedValue(0);
   const onScroll = useAnimatedScrollHandler(event => {
-    console.log(event.contentOffset.y);
     y.value = event.contentOffset.y;
   });
   return (
-    <Fragment>
+    <GestureHandlerRootView style={{flex: 1}}>
       <StatusBar hidden />
-      <Animated.ScrollView
+      <AnimatedScrollView
         scrollEventThrottle={16}
         snapToInterval={height / 2}
         decelerationRate="fast"
@@ -73,8 +76,8 @@ const ChanelScroll = () => {
             <Item y={y} index={index} item={item} key={index} />
           ))}
         </Animated.View>
-      </Animated.ScrollView>
-    </Fragment>
+      </AnimatedScrollView>
+    </GestureHandlerRootView>
   );
 };
 
