@@ -1,4 +1,4 @@
-import {Image, StyleSheet, Dimensions, View} from 'react-native';
+import {Image, StyleSheet, Dimensions} from 'react-native';
 import React from 'react';
 import Animated, {
   Extrapolate,
@@ -100,13 +100,11 @@ const Item = (props: any) => {
       rotateX.value = withTiming(0);
     });
   return (
-    <View>
-      <GestureDetector gesture={gesture}>
-        <Animated.View style={[styles.imageContainer, rStyle]}>
-          <Image source={{uri: item.image}} style={styles.image} />
-        </Animated.View>
-      </GestureDetector>
-    </View>
+    <GestureDetector gesture={gesture}>
+      <Animated.View style={[styles.imageContainer, rStyle]}>
+        <Image source={{uri: item.image}} style={styles.image} />
+      </Animated.View>
+    </GestureDetector>
   );
 };
 
