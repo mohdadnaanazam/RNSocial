@@ -24,7 +24,7 @@ const Item = (props: any) => {
   const rotateY = useSharedValue(0);
 
   const rStyle = useAnimatedStyle(() => {
-    const hgt = interpolate(
+    const rHeight = interpolate(
       y.value,
       [(index - 1) * MAX_HEIGHT, index * MAX_HEIGHT],
       [MIN_HEIGHT, MAX_HEIGHT],
@@ -38,7 +38,7 @@ const Item = (props: any) => {
       Extrapolate.CLAMP,
     );
     return {
-      height: hgt,
+      height: rHeight,
       opacity: opacity,
       transform: [
         {
@@ -112,15 +112,6 @@ const styles = StyleSheet.create({
   imageContainer: {
     height: MAX_HEIGHT,
     width: width,
-    overflow: 'hidden',
-    transform: [
-      {
-        perspective: 100,
-      },
-      {
-        rotateY: '5deg',
-      },
-    ],
   },
   image: {
     height: undefined,
