@@ -1,5 +1,5 @@
 import React from 'react';
-import Glassmorphism from './src/Screens/Bulb/Bulb';
+import Glassmorphism from './src/Screens/Hover/Hover';
 
 export default function App() {
   return <Glassmorphism />;
