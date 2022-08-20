@@ -29,7 +29,7 @@ const StyledAnimatedText = (props: any) => {
     const scale = interpolate(
       translateX.value,
       [(index - 1) * width, index * width, (1 + index) * width],
-      [1, 3, 1],
+      [1, 2.5, 1],
       Extrapolate.CLAMP,
     );
 
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     color: 'white',
-    fontSize: 20,
+    fontSize: 30,
     letterSpacing: 10,
   },
 });
